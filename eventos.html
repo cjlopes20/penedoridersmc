@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Penedo Riders</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+
+<div class="navbar-fixed">
+    <nav class="nav-wrapper grey darken-4">
+        <h4 class="center-align titleApp">Eventos</h4>
+    </nav>
+</div>
+
+<div>
+    <div class="row">
+        <div class="col s12">
+            <br/>
+            <div id="listViewEvento" style="margin-bottom: 70px;"></div>
+            <script type="text/x-kendo-template" id="templateEvento">
+                <div class="card item">
+                    <div class="card-image">
+                        <img src="#=img#" alt="${titulo}" />
+                    </div>
+                    <div class="card-content">
+                        <h5 style="text-align: center; margin: 0;font-weight: bold;">${data}</h5>
+                        <h6 style="text-align: center; margin: 0;font-weight: bold;color: RGB(102, 102, 102);">${hora}</h6>
+                    </div>
+                </div>
+            </script>
+        </div>
+    </div>
+</div>
+
+<div class="navbar-fixed footer">
+    <nav class="nav-wrapper grey darken-4">
+        <ul class="center row">
+            <li class="col s2 offset-s1"><a href="motoclube.html"><i class="fa fa-motorcycle"></i></a></li>
+            <li class="col s2"><a href="novidades.html"><i class="fa fa-newspaper-o"></i></a></li>
+            <li class="col s2"><a href="social/social.html"><i class="fa fa-users"></i></a></li>
+            <li class="col s2"><a href="eventos.html"><i class="fa fa-calendar"></i></a></li>
+            <li class="col s2"><a href="fotos.html"><i class="fa fa-photo"></i></a></li>
+        </ul>
+    </nav>
+</div>
+
+<!--  Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+<script src="js/materialize.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+<!-- Index -->
+<script type="text/javascript" src="cordova.js"></script>
+
+<script>
+
+    $(function() {
+
+        $.ajax({
+            type: "GET", /* tipo get */
+            url: "http://penedoriders.com.br/php/site/open/eventos.php",
+            contentType: 'text/plain; charset=utf-8',
+            xhrFields: {
+                withCredentials: false
+            },
+            headers: {},
+            success: function(retorno) {
+
+                retorno = $.parseJSON(retorno);
+
+                function convertData(date){
+                    var curr_date = date.getDate();
+                    var curr_month = date.getMonth() + 1;
+                    var curr_year = date.getFullYear();
+                    var data = curr_date + "/" + curr_month + "/" + curr_year;
+                    var newDate = data.split('/');
+                    if (newDate[0].length < 2) {
+                        newDate[0] = "0" + newDate[0];
+                    }
+                    if (newDate[1].length < 2) {
+                        newDate[1] = "0" + newDate[1];
+                    }
+                    return newDate[0] + "/" + newDate[1] + "/" + newDate[2];
+                }
+
+                function convertHora(hora){
+                    var newDate = hora.split(':');
+                    return newDate[0] + ":" + newDate[1];
+                }
+
+                for(var i = 0, lenI = retorno.length; i < lenI; i++){
+                    retorno[i].data = convertData(new Date(retorno[i].data));
+                    retorno[i].hora = convertHora(retorno[i].hora);
+                }
+
+                var dataSource = new kendo.data.DataSource({
+                    data:  retorno,
+                    sort: { field: "data", dir: "asc" }
+                });
+
+                $("#listViewEvento").kendoListView({
+                    dataSource: dataSource,
+                    selectable: true,
+                    change: function(e){
+                        var data = e.sender.dataSource.view();
+                        jQuery.map(e.sender.select(), function (item) {
+                            var selecionado = data[jQuery(item).index()];
+                            localStorage.setItem("eve_id", selecionado.id);
+                            window.location.href = "single/evento-single.html";
+                        });
+                    },
+                    template: kendo.template($("#templateEvento").html())
+                });
+
+            },
+            error: function() {
+                window.location.href = 'http://app.blutee.com.br/penedoriders/index.html';
+            }
+        });
+
+    });
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+body{
+    font-family: 'Lato', sans-serif;
+}
+.tabs .tab a {
+    color: #666666;
+}
+.tabs .tab a:hover {
+    color: #999;
+}
+.tabs .tab.disabled a {
+    color: #999;
+    cursor: default;
+}
+.tabs .indicator {
+    background-color: #666666;
+}
+.footer {
+    position: absolute; bottom: 0;
+}
+.titleApp {
+    margin: 0;
+    padding: 9px 0;
+}
+.abaMoto {
+    padding: 0 !important;
+    margin: 0;
+}
+.blockMoto{
+    text-align: center;margin: 10px 0 0 0;background-color: #222;overflow: hidden;height: 150px;
+}
+
+.blockMotoTitle{
+    color: #EEE;float: right;margin: 100px 5px 0 0;
+}
+
+.blockMotoImg{
+    height: 100px;float: left;position: absolute;left: 15px;top: 145px;
+}
+#content{
+    padding: 0 10px;height: 100%;margin-bottom: 50px;
+}
+.titleContent{
+    color: #888;font-style: italic;font-weight: bold;text-align: center;
+}
+.imgMem{
+    width: 100%;
+}
+.timeNot{
+    font-size: 10px;
+    float: right;
+    color: #999;
+}
+.imgNot{
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+}
+.titleNot{
+    font-weight: normal;
+}
+.loginBody{
+    height: 100%;
+    background-color: #2a2a2a;
+}
+.blockWhite{
+    background-color: #fff;
+    margin: 30% 15px;
+    border-radius: 5px;
+    padding: 20px 0;
+}
+.btoCadastrar{
+    text-align: center;
+    margin-top: 95px;
+    margin-bottom: 0;
+}
+.cardNoticias{
+    box-shadow: none;border-bottom: 1px solid rgb(220,220,220);padding-bottom: 10px;
+}
+.iconArrow{
+    float: left;
+    line-height: 55px;
+    font-size: 18px;
+    margin-left: 10px;
+}

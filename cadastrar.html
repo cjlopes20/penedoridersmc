@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Penedo Riders</title>
+
+    <!-- Index -->
+
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+
+<body>
+
+<div id="login-page" class="container">
+    <form class="login-form">
+        <div class="row">
+            <div class="input-field col s12 center">
+                <img src="img/logoPenedo.png" alt="" class="responsive-img valign profile-image-login" style="height: 90px;">
+                <p class="center login-form-text" style="font-weight: bold; margin:0">Cadastrar no APP Penedo Riders</p>
+            </div>
+        </div>
+        <div class="row" style="margin: 0;">
+            <div class="input-field col s12">
+                <input id="username" type="text">
+                <label for="username" class="center-align">Usuário</label>
+            </div>
+        </div>
+        <div class="row" style="margin: 0">
+            <div class="input-field col s12">
+                <input id="password" type="password">
+                <label for="password">Senha</label>
+            </div>
+        </div>
+        <div class="row" style="margin: 0">
+            <div class="input-field col s12">
+                <input id="nome" type="text">
+                <label for="nome">Nome</label>
+            </div>
+        </div>
+        <div class="row" style="margin: 0">
+            <div class="input-field col s12">
+                <input id="email" type="text">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <br />
+        <div class="row" style="margin: 0">
+            <div class="input-field col s12">
+                <a class="btn waves-effect waves-light col s12 black" onclick="cadastrarUsuario()">Cadastrar</a>
+            </div>
+        </div>
+        <br />
+        <br />
+    </form>
+</div>
+
+<!--  Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="js/materialize.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Index -->
+<script type="text/javascript" src="cordova.js"></script>
+
+</body>
+</html>

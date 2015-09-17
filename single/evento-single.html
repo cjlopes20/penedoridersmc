@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>Penedo Riders</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css' />
+</head>
+
+<body>
+
+<div class="navbar-fixed">
+    <nav class="nav-wrapper grey darken-4">
+        <a href="../eventos.html"><i class="fa fa-arrow-left iconArrow"></i></a>
+        <h4 class="center-align titleApp">Eventos</h4>
+    </nav>
+</div>
+
+<div id="listView" style="margin-bottom: 70px;"></div>
+<script type="text/x-kendo-template" id="template">
+    <div class="card cardNoticias" style="margin: 0; border: 0;">
+        <div class="card-image">
+            <img src="#=img#" />
+        </div>
+        <div class="card-content" style="padding: 0 15px;">
+            <h5 style="text-align: center;font-weight: bolder;margin: 0;">${titulo}</h5>
+            <h6>
+                <b>Data</b>
+                <p>${data}</p>
+            </h6>
+            <h6>
+                <b>Hora</b>
+                <p>${hora}</p>
+            </h6>
+            <h6>
+                <b>Detalhes</b>
+                <p>${descricao}</p>
+            </h6>
+        </div>
+    </div>
+
+</script>
+
+<div class="navbar-fixed footer">
+    <nav class="nav-wrapper grey darken-4">
+        <ul class="center row">
+            <li class="col s2 offset-s1"><a href="../motoclube.html"><i class="fa fa-motorcycle"></i></a></li>
+            <li class="col s2"><a href="../novidades.html"><i class="fa fa-newspaper-o"></i></a></li>
+            <li class="col s2"><a href="../social/social.html"><i class="fa fa-users"></i></a></li>
+            <li class="col s2"><a href="../eventos.html"><i class="fa fa-calendar"></i></a></li>
+            <li class="col s2"><a href="../fotos.html"><i class="fa fa-photo"></i></a></li>
+        </ul>
+    </nav>
+</div>
+
+<!--  Scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+<script src="../js/materialize.js"></script>
+
+<!-- Index -->
+<script type="text/javascript" src="../cordova.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+
+<script>
+
+    $(function() {
+
+        var idEvento = JSON.parse(localStorage.getItem("eve_id"));
+        var obj = { "id": idEvento };
+
+        if(idEvento) {
+
+            $.ajax({
+                type: "POST",
+                url: "http://penedoriders.com.br/php/site/open//eventos-single.php",
+                data: obj,
+                xhrFields: {
+                    withCredentials: false
+                },
+                headers: {},
+                success: function (retorno) {
+
+                    retorno = $.parseJSON(retorno);
+
+                    function convertData(date){
+                        var curr_date = date.getDate();
+                        var curr_month = date.getMonth() + 1;
+                        var curr_year = date.getFullYear();
+                        var data = curr_date + "/" + curr_month + "/" + curr_year;
+                        var newDate = data.split('/');
+                        if (newDate[0].length < 2) {
+                            newDate[0] = "0" + newDate[0];
+                        }
+                        if (newDate[1].length < 2) {
+                            newDate[1] = "0" + newDate[1];
+                        }
+                        return newDate[0] + "/" + newDate[1] + "/" + newDate[2];
+                    }
+
+                    function convertHora(hora){
+                        var newDate = hora.split(':');
+                        return newDate[0] + ":" + newDate[1];
+                    }
+
+                    for(var i = 0, lenI = retorno.length; i < lenI; i++){
+                        retorno[i].data = convertData(new Date(retorno[i].data));
+                        retorno[i].hora = convertHora(retorno[i].hora);
+                    }
+
+                    var dataSource = new kendo.data.DataSource({
+                        data:  retorno,
+                        sort: { field: "data", dir: "asc" }
+                    });
+
+                    $("#listView").kendoListView({
+                        dataSource: dataSource,
+                        template: kendo.template($("#template").html())
+                    });
+
+                },
+                error: function() {},
+                contentType: 'application/x-www-form-urlencoded',
+            });
+
+        } else {
+            window.location.href = "../eventos.html";
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>
