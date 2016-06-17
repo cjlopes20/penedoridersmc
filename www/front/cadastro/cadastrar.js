@@ -1,5 +1,5 @@
-function acessar(){
-
+function cadastrarUsuario(){
+    sessionStorage.clear();
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -18,24 +18,37 @@ function acessar(){
         "hideMethod": "fadeOut"
     };
 
-    var email = jQuery('#username').val();
-    var senha = jQuery('#password').val();
+    var login = document.getElementById('username').value;
+    var senha = document.getElementById('password').value;
+    var nome  = document.getElementById('nome').value;
+    var email = document.getElementById('email').value;
+    var url   = document.getElementById('url').value;
+    var dataN = document.getElementById('dataN').value;
 
-    if(!email){
+    if(!login){
         toastr.warning('Por favor, digite um usuário válido');
     }
     else if(!senha){
         toastr.warning('Por favor, digite uma senha válida');
     }
+    else if(!nome){
+        toastr.warning('Por favor, digite um nome válido');
+    }
+    else if(!email){
+        toastr.warning('Por favor, digite um email válido');
+    }
     else{
-
         var obj = {
-            "login": email,
-            "senha": senha
+            "login": login,
+            "senha": senha,
+            "nome": nome,
+            "email": email,
+            "imagem": url,
+            "data": dataN
         };
         $.ajax({
             type: "POST",
-            url: "http://penedoriders.com.br/php/app/login.php",
+            url: "http://penedoriders.com.br/php/app/cadastrar.php",
             data: obj,
             xhrFields: {
                 withCredentials: false
@@ -43,31 +56,19 @@ function acessar(){
             headers: {},
             success: function (retorno) {
                 console.log(retorno);
-                retorno = $.parseJSON(retorno);
                 if(!retorno.resposta){
                     toastr.error(retorno.msg);
                 } else {
-                    sessionStorage.setItem("User", JSON.stringify(retorno.usuario[0]));
-                    window.location.href = "www/front/social/social.html";
+                    // retorno = $.parseJSON(retorno);
+                    // console.log(retorno);
+                    // sessionStorage.setItem("User", JSON.stringify(retorno[0]));
+                    // window.location.href = "../social/social.html";
+                    //IR PARA LOGIN
                 }
             },
-            error: function() {},
+            error: function() { console.log(retorno); },
             contentType: 'application/x-www-form-urlencoded'
         });
+
     }
 }
-
-function showFormAccount() {
-    jQuery('#block2-account').css('display', 'block');
-    jQuery('#block2-account').addClass('slidein-from-right');
-    jQuery('#block1-login').removeClass('slidein-from-left');
-    jQuery('#block1-login').css('display', 'none');
-}
-
-function showFormLogin() {
-    jQuery('#block1-login').css('display', 'block');
-    jQuery('#block1-login').addClass('slidein-from-left');
-    jQuery('#block2-account').removeClass('slidein-from-right');
-    jQuery('#block2-account').css('display', 'none');
-}
-

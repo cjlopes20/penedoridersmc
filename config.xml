@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.blutee.penedoridersmc" version="0.8.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Penedo Riders MC</name>
+<widget id="com.blutee.penedoridersmc" version="0.8.5" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Social Penedo Riders</name>
     <description>
-        MotoClube Penedo Riders. Informações sobre sua historia, membro eventos e o blog.
+        Aplicativo para integrantes e simpatizantes
     </description>
     <author email="suporte@blutee.com" href="http://blutee.com.br">
         BluTee

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Penedo Riders</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css'>
+        <link href="../../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+
+    <body>
+
+    <div class="login-page container" style="margin: 0 auto;">
+        <form class="login-form">
+            <div class="row">
+                <div class="blockLogotipo center">
+                    <img src="../../../img/logoPenedo.png" alt="logotipo" class="responsive-img valign profile-image-login" width="90" />
+                    <h2 class="center login-form-text" style="font-weight: bold; margin:0">Social Riders</h2>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="username" type="text" data-bind="value: NovoUsuario.usuario" />
+                    <label for="username" class="center-align">Usuário</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="password" type="password" data-bind="value: NovoUsuario.senha" />
+                    <label for="password">Senha</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="nome" type="text" data-bind="value: NovoUsuario.nome" />
+                    <label for="nome">Nome</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="email" type="email" data-bind="value: NovoUsuario.email" />
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="url" type="url" data-bind="value: NovoUsuario.url" />
+                    <label for="url">Url da Imagem</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="dataN" type="text" data-bind="value: NovoUsuario.data" />
+                    <label for="dataN">Data de Nascimento</label>
+                </div>
+            </div>
+            <br />
+            <div class="row mg-none">
+                <div class="input-field col s12 center">
+                    <a class="btn waves-effect waves-light col s12 black" onclick="cadastrarUsuario()">Cadastrar</a>
+                    <a class="col s12" href="../../../index.html" style="padding: 20px 0;">Voltar</a>
+                </div>
+            </div>
+            <br />
+            <br />
+        </form>
+    </div>
+
+    <!--  Scripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="cadastrar.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+    </body>
+
+</html>

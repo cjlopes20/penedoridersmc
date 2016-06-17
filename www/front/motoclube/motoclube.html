@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Penedo Riders</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link href="../../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    </head>
+
+    <body>
+
+        <div class="navbar-fixed">
+            <nav class="nav-wrapper grey darken-4">
+                <h4 class="center-align titleApp">Motoclube</h4>
+                <i class="fa fa-bars icon-menu" onclick="openModalMenu()"></i>
+            </nav>
+        </div>
+
+        <div class="row">
+
+            <div class="col s12" style="height: 60px;margin: 0 0 -10px 0;">
+                <ul class="tabs" style="height: 100%;border-bottom: 1px solid #cccccc">
+                    <li class="tab col s6"><a class="active" href="#moto" style="padding: 7px 0">Penedo Riders</a></li>
+                    <li class="tab col s6"><a href="#memb" style="padding: 7px 0">Membros</a></li>
+                </ul>
+            </div>
+
+            <div id="moto" class="col s12 abaMoto">
+                <br />
+                <div id="content">
+                    <h5 class="titleContent">Unidos por uma paixão, movidos por um ideal</h5>
+                    <div>
+                        <p>
+                            Fundado no ano de 2008, o Penedo Riders Moto Clube nasceu
+                            diante da vontade de alguns amigos em
+                            rotular aquilo que já existia entre nós, levantar uma bandeira que pudesse fazer a diferença e
+                            fazer brilhar a estrela daquilo que é a base da nossa união: a “Amizade e a Lealdade”.
+                            Por diversas vezes nos reunimos para colocar as motos na estrada e sentir o verdadeiro espirito de liberdade que a motocicleta proporciona. Dentro dessa chamada liberdade encontramos o caminho que nos levava a extravasar os nossos sentimentos mais ocultos e fazer valer aquilo em que acreditamos.
+                            A partir do dia 18 de agosto teve início o nosso sonho em ter um nome e uma imagem que fosse a nossa cara, representando os nossos ideais, mostrando ao mundo quem somos.Diante de tudo o que cada um vivia em sua própria vida, nós nos permitimos viver algo que, por diversas vezes, tínhamos o ledo engano de achar impossível fazer parte de um estilo de vida que sempre sonhamos.
+                        </p>
+                        <p>
+                            Descobrindo sermos “Verdadeiros estradeiros”, é que vemos o tempo perdido em não acreditar que poderíamos ser o que somos e ter e ninguém pode nos furtar desse nosso sonho, dessa nova maneira de ver o mundo e fazer a diferença seguindo a vontade do Pai.
+                        </p>
+                        <p>
+                            Fazer parte dessa família chamada Penedo Riders Moto Clube está além de uma motocicleta possante, é ter que passar pelo crivo do Conselho, onde somente com cem por cento de aceitação o mesmo fará parte dessa família.
+                        </p>
+                        <p>
+                            Nós temos diante de tudo o orgulho de ostentar essa águia no peito, e ser realmente leal aos nossos ideais de amizade e companheirismo, fazendo assim a nossa parte ao motociclismo do Brasil e ser um exemplo aos que virão.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="memb" class="col s12">
+                <br />
+                <div id="listView" style="overflow: hidden;margin-bottom: 30px;">
+                    <script type="text/x-kendo-template" id="template">
+                        <div class="col s6 item-membro">
+                            <img class="responsive-img" src="#=img#" alt="#=nome#" />
+                        </div>
+                    </script>
+                </div>
+                <div class="divider"></div>
+            </div>
+
+        </div>
+
+        <div class="navbar-fixed footer">
+            <nav class="nav-wrapper grey darken-4">
+                <ul class="center row">
+                    <li class="itemMenuBottom item-select"><a href="motoclube.html"><i class="fa fa-motorcycle"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../novidades/novidades.html"><i class="fa fa-newspaper-o"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../social/social.html"><i class="fa fa-users"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../eventos/eventos.html"><i class="fa fa-calendar"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../fotos/fotos.html"><i class="fa fa-photo"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#!">First Sidebar Link</a></li>
+                <li><a href="#!">Second Sidebar Link</a></li>
+            </ul>
+            <ul id="slide-out" class="side-nav">
+                <li><a href="#!">First Sidebar Link</a></li>
+                <li><a href="#!">Second Sidebar Link</a></li>
+            </ul>
+            <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        </nav>
+
+        <!-- Arrumar modal e funções -->
+        <div id="modalMenu" class="modal">
+            <div class="modal-header">
+                <h4>Configurações</h4>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+            </div>
+            <div class="modal-content">
+                <ul>
+                    <li><a onclick="menuPerfil()"><i class="fa fa-user"></i>Meu Perfil</a></li>
+                    <li><a onclick="menuBloqueados()"><i class="fa fa-user"></i>Pessoas ***</a></li>
+                    <li><a onclick="menuSobre()"><i class="fa fa-help"></i>Sobre</a></li>
+                    <li><a onclick="menuSair()"><i class="fa fa-logout"></i>Sair</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+        <script type="text/javascript" src="../../../js/master.js"></script>
+        <script type="text/javascript" src="motoclube.js"></script>
+        <script type="text/javascript" src="../../../cordova.js"></script>
+
+    </body>
+
+</html>

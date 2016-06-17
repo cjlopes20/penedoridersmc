@@ -1,6 +1,3 @@
-body{
-    font-family: 'Lato', sans-serif;
-}
 .tabs .tab a {
     color: #666666;
 }
@@ -15,69 +12,309 @@ body{
     background-color: #666666;
 }
 .footer {
-    position: absolute; bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 .titleApp {
     margin: 0;
-    padding: 9px 0;
+    padding: 13px 0;
+    font-size: 28px;
 }
 .abaMoto {
-    padding: 0 !important;
     margin: 0;
+    padding: 0 !important;
 }
-.blockMoto{
-    text-align: center;margin: 10px 0 0 0;background-color: #222;overflow: hidden;height: 150px;
+.blockMoto {
+    height: 150px;
+    overflow: hidden;
+    margin: 10px 0 0 0;
+    text-align: center;
+    background-color: #222;
 }
 
-.blockMotoTitle{
-    color: #EEE;float: right;margin: 100px 5px 0 0;
+.blockMotoTitle {
+    float: right;
+    margin: 100px 5px 0 0;
+    color: #eee;
 }
 
-.blockMotoImg{
-    height: 100px;float: left;position: absolute;left: 15px;top: 145px;
+.blockMotoImg {
+    position: absolute;
+    float: left;
+    height: 100px;
+    top: 145px;
+    left: 15px;
 }
-#content{
-    padding: 0 10px;height: 100%;margin-bottom: 50px;
+#content {
+    height: 100%;
+    margin-bottom: 50px;
+    padding: 0 15px;
+    font-size: 16px;
+    text-align: justify;
 }
-.titleContent{
-    color: #888;font-style: italic;font-weight: bold;text-align: center;
+.titleContent {
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: #888;
+    text-align: center;
 }
-.imgMem{
+.imgMem {
     width: 100%;
 }
-.timeNot{
-    font-size: 10px;
+.timeNot {
     float: right;
+    font-size: 10px;
     color: #999;
 }
-.imgNot{
+.imgNot {
     -webkit-filter: blur(3px);
     filter: blur(3px);
 }
-.titleNot{
+.titleNot {
     font-weight: normal;
 }
-.loginBody{
+.login-page{
+    margin: 10% auto;
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+}
+.blockLogotipo{
+    font-family: 'Lobster', cursive;
+}
+.loginBody {
     height: 100%;
     background-color: #2a2a2a;
 }
-.blockWhite{
-    background-color: #fff;
+.blockWhite {
     margin: 30% 15px;
-    border-radius: 5px;
     padding: 20px 0;
+    border-radius: 5px;
+    background-color: #fff;
 }
-.btoCadastrar{
-    text-align: center;
+.btoCadastrar {
     margin-top: 95px;
     margin-bottom: 0;
+    text-align: center;
 }
-.cardNoticias{
-    box-shadow: none;border-bottom: 1px solid rgb(220,220,220);padding-bottom: 10px;
+.cardNoticias {
+    /*padding-bottom: 10px;*/
+    border-bottom: 1px solid #CCC;
+    border-top: 5px solid #FFF;
+    /*box-shadow: none;*/
 }
-.iconArrow{
+.cardNoticias:first-child{
+    border-top: none;
+}
+h5.card-title.activator.grey-text.text-darken-4.title-noticias{
+    font-size: 20px;
+    text-align: justify;
+    font-weight: 600;
+    line-height: 25px;
+}
+.iconArrow {
     float: left;
-    line-height: 55px;
-    font-size: 18px;
     margin-left: 10px;
+    font-size: 18px;
+    line-height: 55px;
+}
+.itemMenuBottom {
+    width: 20%;
+}
+.imgPerfil {
+    float: left;
+    width: 85px !important;
+    height: 85px;
+    border-radius: 100% !important;
+}
+.tituloPerfil {
+    float: left;
+    margin-top: 10px;
+    margin-bottom: -2px;
+    margin-left: 5px;
+}
+.emailPerfil {
+    margin: 0 7px;
+    font-size: small;
+    font-weight: bold;
+}
+.dataPerfil {
+    margin-left: 5px;
+}
+
+.mg-none {
+    margin: 0;
+}
+.item-select {
+    background: #000000;
+}
+.icon-menu {
+    position: absolute;
+    height: 24px;
+    right: 17px;
+    bottom: 17px;
+    font-size: 24px;
+    color: #fff;
+}
+#modalMenu, #modalPostagem {
+    width: 100%;
+    height:100%;
+    max-height: 100%;
+    top: 0 !important;
+    border-radius: 0;
+}
+.modal-menu{
+    overflow: hidden;
+    background: #dddddd;
+}
+.modal-menu-top-title{
+    float: left;
+    padding-left: 10px;
+}
+.modal-menu-top-button{
+    float: right;
+    padding-right: 10px;
+}
+.item-membro{
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 0 !important;
+    border: 5px solid transparent;
+}
+#memb{
+    margin-bottom: 15px;
+}
+#block1-login{
+    display: block;
+}
+#block2-account{
+    display: none;
+}
+.slidein-transition {
+    -moz-animation: fadein 500ms ease-in;
+    -webkit-animation: fadein 500ms ease-in;
+    -o-animation: fadein 500ms ease-in;
+    animation: fadein 500ms ease-in;
+}
+
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.slidein-from-right {
+    -moz-animation: slidein-from-right2 500ms;
+    -webkit-animation: slidein-from-right2 500ms;
+    -o-animation: slidein-from-right2 500ms;
+    animation: slidein-from-right2 500ms;
+}
+@-webkit-keyframes slidein-from-right2 {
+    from {
+        -webkit-transform:translateX(100%);
+    }
+    to {
+        -webkit-transform:translateX(0%);
+    }
+}
+@-moz-keyframes slidein-from-right2 {
+    from {
+        -moz-transform:translateX(100%);
+    }
+    to {
+        -moz-transform:translateX(0%);
+    }
+}
+@-o-keyframes slidein-from-right2 {
+    from {
+        -o-transform:translateX(100%);
+    }
+    to {
+        -o-transform:translateX(0%);
+    }
+}
+@keyframes slidein-from-right2 {
+    from {
+        transform:translateX(100%);
+    }
+    to {
+        transform:translateX(0%);
+    }
+}
+.slidein-from-left {
+    -webkit-animation: slidein-from-left2 500ms;
+    -moz-animation: slidein-from-left2 500ms;
+    -o-animation: slidein-from-left2 500ms;
+    animation: slidein-from-left2 500ms;
+}
+@-webkit-keyframes slidein-from-left2 {
+    from {
+        -webkit-transform:translateX(-100%);
+    }
+    to {
+        -webkit-transform:translateX(0%);
+    }
+}
+@-moz-keyframes slidein-from-left2 {
+    from {
+        -moz-transform:translateX(-100%);
+    }
+    to {
+        -moz-transform:translateX(0%);
+    }
+}
+@-o-keyframes slidein-from-left2 {
+    from {
+        -o-transform:translateX(-100%);
+    }
+    to {
+        -o-transform:translateX(0%);
+    }
+}
+@keyframes slidein-from-left2 {
+    from {
+        transform:translateX(-100%);
+    }
+    to {
+        transform:translateX(0%);
+    }
+}
+
+.title-noticias{
+    font-size: 16px;font-style: normal;font-weight: bold;padding: 0;margin: 0;line-height: 22px;
+}
+
+.display-none{
+    display: none !important;
+}
+.display-block{
+    display: block !important;
 }
