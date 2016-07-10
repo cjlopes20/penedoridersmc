@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Penedo Riders</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <link href="../../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+
+    <body>
+
+        <div class="navbar-fixed">
+            <nav class="nav-wrapper grey darken-4">
+                <h4 class="center-align titleApp">Novidades</h4>
+                <i class="fa fa-bars icon-menu" onclick="openModalMenu()"></i>
+            </nav>
+        </div>
+
+        <div class="row">
+
+            <div class="col s12" style="height: 60px;margin: 0 0 -10px 0;">
+                <ul class="tabs" style="height: 100%;border-bottom: 1px solid #cccccc">
+                    <li class="tab col s6"><a class="active" href="#noticias" style="padding: 7px 0">Notícias</a></li>
+                    <li class="tab col s6"><a href="#blog" style="padding: 7px 0">Blog</a></li>
+                </ul>
+            </div>
+
+            <div id="noticias" class="col s12 abaMoto">
+                <br />
+                <div id="listViewNoticia" style="margin-bottom: 35px;"></div>
+                <script type="text/x-kendo-template" id="templateNoticia">
+                    <div class="card cardNoticias">
+                        <div class="card-content">
+                            <h5 class="card-title activator grey-text text-darken-4 title-noticias">${titulo}</h5>
+                            <span style="float: left;font-size: 11px;">${autor}</span>
+                            <br />
+                            # descricao = descricao.replace(/(<([^>]+)>)/ig,"") #
+                            #if(descricao.length >= 150){#
+                                # descricao = descricao.substring(0,150)#
+                                # descricao = descricao + '...'#
+                            #}#
+                            <div style="margin-top: 5px;text-align: justify;">#= descricao #</div>
+                        </div>
+                    </div>
+
+                </script>
+            </div>
+
+            <div id="blog" class="col s12">
+                <br />
+                <div id="listViewBlog" style="margin-bottom: 70px;"></div>
+                <script type="text/x-kendo-template" id="templateBlog">
+                    <div class="card item">
+                        <div class="card-image">
+                            <img src="#=img#" alt="${titulo}"/>
+                        </div>
+                        <div class="card-content" style="padding: 5px 5px 10px 5px;">
+                            <div style="overflow: hidden;font-size: 11px;margin: 0;color: rgb(128,128,128);">
+                                <span style="float: left;">${autor}</span>
+                                <span style="float: right;">#= moment(data).fromNow() #</span>
+                            </div>
+                            <h5 style="margin: 5px 0;text-align: justify;">${titulo}</h5>
+                            # descricao = descricao.replace(/(<([^>]+)>)/ig,"") #
+                                #if(descricao.length >= 150){#
+                                # descricao = descricao.substring(0,150)#
+                                # descricao = descricao + '...'#
+                            #}#
+                            <div>#= descricao #</div>
+                        </div>
+                    </div>
+                </script>
+            </div>
+
+        </div>
+
+        <div class="navbar-fixed footer">
+            <nav class="nav-wrapper grey darken-4">
+                <ul class="center row">
+                    <li class="itemMenuBottom"><a href="../motoclube/motoclube.html"><i class="fa fa-motorcycle"></i></a></li>
+                    <li class="itemMenuBottom item-select"><a href="novidades.html"><i class="fa fa-newspaper-o"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../social/social.html"><i class="fa fa-users"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../eventos/eventos.html"><i class="fa fa-calendar"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../fotos/fotos.html"><i class="fa fa-photo"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="modalMenu" class="modal">
+            <div class="modal-header">
+                <h4>Configurações</h4>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+            </div>
+            <div class="modal-content">
+                <ul>
+                    <li><a onclick="menuPerfil()"><i class="fa fa-user"></i>Meu Perfil</a></li>
+                    <li><a onclick="menuBloqueados()"><i class="fa fa-user"></i>Pessoas ***</a></li>
+                    <li><a onclick="menuSobre()"><i class="fa fa-help"></i>Sobre</a></li>
+                    <li><a onclick="menuSair()"><i class="fa fa-logout"></i>Sair</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script type="text/javascript" src="../../../js/moment.js"></script>
+
+        <script src="../../../js/master.js"></script>
+        <script type="text/javascript" src="novidades.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+
+    </body>
+
+</html>

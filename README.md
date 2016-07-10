@@ -1,1 +1,0 @@
-**Projeto Penedo Riders - TCC**

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Penedo Riders</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link href="../../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    </head>
+
+    <body>
+
+        <div class="navbar-fixed">
+            <nav class="nav-wrapper grey darken-4">
+                <a href="novidades.html"><i class="fa fa-arrow-left iconArrow"></i></a>
+                <h4 class="center-align titleApp">Notícias</h4>
+                <i class="fa fa-bars icon-menu" onclick="openModalMenu()"></i>
+            </nav>
+        </div>
+
+        <div id="listViewNoticia" style="margin-bottom: 70px;"></div>
+        <script type="text/x-kendo-template" id="templateNoticia">
+            <div class="card cardNoticias" style="margin: 0; border: 0;">
+                <div class="card-image">
+                    <img src="#=img#" />
+                </div>
+                <div class="card-content" style="padding: 0 10px;">
+                    <div style="overflow: hidden;font-size: 11px;margin: 5px 0;">
+                        <span style="float: left;">${autor}</span>
+                        <span style="float: right;">#= moment(datah).fromNow() #</span>
+                    </div>
+                    <h5 class="card-title activator grey-text text-darken-4" style="font-size: 16px;font-style: normal;font-weight: bold;padding: 0;margin: 0;line-height: 22px;text-align: justify">${titulo}</h5>
+                    <div style="margin-top: 6px;text-align: justify">#= texto #</div>
+                </div>
+            </div>
+
+        </script>
+
+        <div class="navbar-fixed footer">
+            <nav class="nav-wrapper grey darken-4">
+                <ul class="center row">
+                    <li class="itemMenuBottom"><a href="www/motoclube/motoclube.html"><i class="fa fa-motorcycle"></i></a></li>
+                    <li class="itemMenuBottom item-select"><a href="www/novidades/novidades.html"><i class="fa fa-newspaper-o"></i></a></li>
+                    <li class="itemMenuBottom"><a href="www/social/social.html"><i class="fa fa-users"></i></a></li>
+                    <li class="itemMenuBottom"><a href="www/eventos/eventos.html"><i class="fa fa-calendar"></i></a></li>
+                    <li class="itemMenuBottom"><a href="www/fotos/fotos.html"><i class="fa fa-photo"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!--  Scripts-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script type="text/javascript" src="../../../js/moment.js"></script>
+
+        <script type="text/javascript" src="../../../js/master.js"></script>
+        <script type="text/javascript" src="novidades-noticias.js"></script>
+        <script type="text/javascript" src="../../../cordova.js"></script>
+
+    </body>
+
+</html>

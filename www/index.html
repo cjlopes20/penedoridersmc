@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Penedo Riders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css'>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body>
+
+<div id="block1-login">
+    <div class="login-page container">
+        <form class="login-form">
+            <div class="row">
+                <div class="blockLogotipo center">
+                    <img src="img/logo.png" alt="logotipo" class="responsive-img valign profile-image-login" width="90" />
+                    <h2 class="center login-form-text" style="font-weight: bold; margin:0;">Social Riders</h2>
+                </div>
+            </div>
+            <div class="row" style="margin: 0;">
+                <div class="input-field col s12">
+                    <input id="username" type="text">
+                    <label for="username" class="center-align">Usuário</label>
+                </div>
+            </div>
+            <div class="row" style="margin: 0">
+                <div class="input-field col s12">
+                    <input id="password" type="password">
+                    <label for="password">Senha</label>
+                </div>
+            </div>
+            <br />
+            <div class="row" style="margin: 0">
+                <div class="input-field col s12">
+                    <a class="btn waves-effect waves-light col s12 black" onclick="acessar()">Acessar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row center-align">
+        <div class="input-field col s12">
+            <a class="col s12" onclick="showFormAccount()">Criar uma nova conta no Social Riders</a>
+        </div>
+    </div>
+</div>
+
+<div id="block2-account">
+    <div class="login-page container" style="margin: 0 auto;">
+        <form class="login-form">
+            <div class="row">
+                <div class="blockLogotipo center">
+                    <img src="img/logo.png" alt="logotipo" class="responsive-img valign profile-image-login" width="90" />
+                    <h2 class="center login-form-text" style="font-weight: bold; margin:0">Social Riders</h2>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="usernameCadastro" type="text" />
+                    <label for="usernameCadastro" class="center-align">Usuário</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="passwordCadastro" type="text" />
+                    <label for="passwordCadastro">Senha</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="nomeCadastro" type="text" />
+                    <label for="nomeCadastro">Nome</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="emailCadastro" type="email" />
+                    <label for="emailCadastro">Email</label>
+                </div>
+            </div>
+            <div class="row mg-none">
+                <div class="input-field col s12">
+                    <input id="urlCadastro" type="url" />
+                    <label for="urlCadastro">Url da Imagem</label>
+                </div>
+            </div>
+            <br />
+            <div class="row mg-none">
+                <div class="col s12">
+                    <label for="dataNCadastro">Data de Nascimento</label>
+                    <input id="dataNCadastro" type="date" class="datepicker" />
+                </div>
+            </div>
+            <br />
+            <div class="row mg-none">
+                <div class="input-field col s12 center">
+                    <a class="btn waves-effect waves-light col s12 black" onclick="cadastrarUsuario()">Cadastrar</a>
+                    <a class="col s12" onclick="showFormLogin()" style="padding: 20px 0;">Voltar</a>
+                </div>
+            </div>
+            <br />
+            <br />
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="js/main.js"></script>
+
+<!--cordova original-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+    app.initialize();
+</script>
+
+</body>
+
+</html>

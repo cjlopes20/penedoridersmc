@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Penedo Riders</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+
+    <body>
+
+        <div class="navbar-fixed">
+
+            <nav class="nav-wrapper grey darken-4">
+                <h4 class="center-align titleApp"><span id="nameTop">Social</span></h4>
+                <a class="dropdown-button" href="#!" data-activates="dropdown1" id="btn-leftMenu" style="display: none">
+                    <i class="fa fa-ellipsis-v icon-menu" data-activates='dropdown1'></i>
+                </a>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a onclick="menuSair()">Sair</a></li>
+                </ul>
+            </nav>
+
+        </div>
+
+        <div class="row" id="pageMotoclube">
+            <div class="col s12" style="height: 60px;margin: 0 0 -10px 0;">
+                <ul class="tabs" style="height: 100%;border-bottom: 1px solid #cccccc">
+                    <li class="tab col s6"><a class="active" href="#moto" style="padding: 7px 0">Penedo Riders</a></li>
+                    <li class="tab col s6"><a href="#memb" style="padding: 7px 0">Membros</a></li>
+                </ul>
+            </div>
+
+            <div id="moto" class="col s12 abaMoto">
+                <br />
+                <div id="content">
+                    <h5 class="titleContent">Unidos por uma paixão, movidos por um ideal</h5>
+                    <div>
+                        <p>
+                            Fundado no ano de 2008, o Penedo Riders Moto Clube nasceu
+                            diante da vontade de alguns amigos em
+                            rotular aquilo que já existia entre nós, levantar uma bandeira que pudesse fazer a diferença e
+                            fazer brilhar a estrela daquilo que é a base da nossa união: a “Amizade e a Lealdade”.
+                            Por diversas vezes nos reunimos para colocar as motos na estrada e sentir o verdadeiro espirito de liberdade que a motocicleta proporciona. Dentro dessa chamada liberdade encontramos o caminho que nos levava a extravasar os nossos sentimentos mais ocultos e fazer valer aquilo em que acreditamos.
+                            A partir do dia 18 de agosto teve início o nosso sonho em ter um nome e uma imagem que fosse a nossa cara, representando os nossos ideais, mostrando ao mundo quem somos.Diante de tudo o que cada um vivia em sua própria vida, nós nos permitimos viver algo que, por diversas vezes, tínhamos o ledo engano de achar impossível fazer parte de um estilo de vida que sempre sonhamos.
+                        </p>
+                        <p>
+                            Descobrindo sermos “Verdadeiros estradeiros”, é que vemos o tempo perdido em não acreditar que poderíamos ser o que somos e ter e ninguém pode nos furtar desse nosso sonho, dessa nova maneira de ver o mundo e fazer a diferença seguindo a vontade do Pai.
+                        </p>
+                        <p>
+                            Fazer parte dessa família chamada Penedo Riders Moto Clube está além de uma motocicleta possante, é ter que passar pelo crivo do Conselho, onde somente com cem por cento de aceitação o mesmo fará parte dessa família.
+                        </p>
+                        <p>
+                            Nós temos diante de tudo o orgulho de ostentar essa águia no peito, e ser realmente leal aos nossos ideais de amizade e companheirismo, fazendo assim a nossa parte ao motociclismo do Brasil e ser um exemplo aos que virão.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="memb" class="col s12">
+                <br />
+                <div id="listView" style="overflow: hidden;margin-bottom: 30px;">
+                    <script type="text/x-kendo-template" id="template">
+                        <div class="col s6 item-membro">
+                            <img class="responsive-img" src="#=img#" alt="#=nome#" />
+                        </div>
+                    </script>
+                </div>
+                <div class="divider"></div>
+            </div>
+
+        </div>
+
+        <div class="row" id="pageSocial">
+
+            <div class="col s12">
+                <div id="listViewPostagem" style="margin-bottom: 50px;"></div>
+                <script type="text/x-kendo-template" id="templatePostagem">
+                    <div class="card cardNoticias" style="min-height: 90px;">
+                        <div class="card-content" style="padding: 0">
+                            <div class="divImgPost">
+                                #if(usuimg){#
+                                    <img src="#=usuimg#" alt="imgUsuario" width="70" class="imgPost" />
+                                #} else {#
+                                    <img src="img/semFoto.jpg" alt="imgUsuario" width="70" class="imgPost" />
+                                #}#
+                            </div>
+                            <div style="overflow: hidden;font-size: 11px;padding: 10px 10px 0 0;">
+                                <span class="nomePost">${usunome}</span>
+                                <span style="float: right">#= moment(new Date(datahora)).fromNow() #</span>
+                            </div>
+                            <p class="paragrafoPost">${postagem}</p>
+                        </div>
+                    </div>
+
+                </script>
+                <div class="fixed-action-btn" style="bottom: 64px; right: 5px;">
+                    <a class="btn-floating btn-large waves-effect waves-light teal darken-4" onclick="openModalPost()"><i class="material-icons">mode_edit</i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" id="pageNovidades">
+
+            <div class="col s12" style="height: 60px;margin: 0 0 -10px 0;">
+                <ul class="tabs" style="height: 100%;border-bottom: 1px solid #cccccc">
+                    <li class="tab col s6"><a class="active" href="#noticias" style="padding: 7px 0">Notícias</a></li>
+                    <li class="tab col s6"><a href="#blog" style="padding: 7px 0">Blog</a></li>
+                </ul>
+            </div>
+
+            <div id="noticias" class="col s12 abaMoto">
+                <br />
+                <div id="listViewNoticia" style="margin-bottom: 45px;"></div>
+                <script type="text/x-kendo-template" id="templateNoticia">
+                    <div class="card cardNoticias">
+                        <div class="card-content">
+                            <h5 class="card-title activator grey-text text-darken-4 title-noticias">${titulo}</h5>
+                            <span style="float: left;font-size: 11px;">${autor}</span>
+                            <br />
+                            # descricao = descricao.replace(/(<([^>]+)>)/ig,"") #
+                            #if(descricao.length >= 150){#
+                            # descricao = descricao.substring(0,150)#
+                            # descricao = descricao + '...'#
+                            #}#
+                            <div style="margin-top: 5px;text-align: justify;">#= descricao #</div>
+                        </div>
+                    </div>
+
+                </script>
+            </div>
+
+            <div id="blog" class="col s12">
+                <br />
+                <div id="listViewBlog" style="margin-bottom: 70px;"></div>
+                <script type="text/x-kendo-template" id="templateBlog">
+                    <div class="card cardNoticias">
+                        <div class="card-image">
+                            <img src="#=img#" alt="${titulo}"/>
+                        </div>
+                        <div class="card-content" style="padding: 5px 5px 10px 5px;">
+                            <div style="overflow: hidden;font-size: 11px;margin: 0;color: rgb(128,128,128);">
+                                <span style="float: left;">${autor}</span>
+                                <span style="float: right;">#= moment(data).fromNow() #</span>
+                            </div>
+                            <h5 style="margin: 5px 0;text-align: justify;">${titulo}</h5>
+                            # descricao = descricao.replace(/(<([^>]+)>)/ig,"") #
+                            #if(descricao.length >= 150){#
+                            # descricao = descricao.substring(0,150)#
+                            # descricao = descricao + '...'#
+                            #}#
+                            <div>#= descricao #</div>
+                        </div>
+                    </div>
+                </script>
+            </div>
+
+        </div>
+
+        <div class="row" id="pageEventos">
+            <div class="col s12">
+                <div id="listViewEvento" style="margin-bottom: 70px;"></div>
+                <script type="text/x-kendo-template" id="templateEvento">
+                    <div class="card item">
+                        <div class="card-image">
+                            <img src="#=img#" alt="${titulo}" />
+                        </div>
+                        <div class="card-content">
+                            <h5 style="text-align: center; margin: 0;font-weight: bold;">${data}</h5>
+                            <h6 style="text-align: center; margin: 0;font-weight: bold;color: RGB(102, 102, 102);">${hora}</h6>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+
+        <div class="row" id="pagePerfil">
+            <div id="listViewPerfil" style="margin-bottom: 70px;"></div>
+            <script type="text/x-kendo-template" id="templatePerfil">
+                <div style="margin: 0; border: 0;">
+                    <div class="divImgPost divImgPerfil">
+                        #if(img){#
+                        <img src="#=img#" alt="imgUsuario" width="150" class="imgPost" />
+                        #} else {#
+                        <img src="img/semFoto.jpg" alt="imgUsuario" width="150"  class="imgPost" />
+                        #}#
+                    </div>
+                    <div class="card-content" style="padding: 0 15px;">
+                        <h4 class="title-perfil">${nome}</h4>
+                        <h6>
+                            <b>Usuario</b>
+                            <p style="margin: 0;">${login}</p>
+                        </h6>
+                        <br />
+
+                        <h6>
+                            <b>Data</b>
+                            <p style="margin: 0;">${datanasc}</p>
+                        </h6>
+                        <br />
+
+                        <h6>
+                            <b>Email</b>
+                            <p style="margin: 0;">${email}</p>
+                        </h6>
+                        <br />
+                    </div>
+                </div>
+
+            </script>
+        </div>
+
+        <div class="navbar-fixed footer">
+            <nav class="nav-wrapper grey darken-4">
+                <ul class="center row">
+                    <li class="itemMenuBottom" id="itemMotoclube"><a onclick="acessPage('Motoclube')"><i class="fa fa-motorcycle"></i></a></li>
+                    <li class="itemMenuBottom" id="itemNovidades"><a onclick="acessPage('Novidades')"><i class="fa fa-newspaper-o"></i></a></li>
+                    <li class="itemMenuBottom item-select" id="itemSocial"><a onclick="acessPage('Social')"><i class="fa fa-users"></i></a></li>
+                    <li class="itemMenuBottom" id="itemEventos"><a onclick="acessPage('Eventos')"><i class="fa fa-calendar"></i></a></li>
+                    <li class="itemMenuBottom" id="itemPerfil"><a onclick="acessPage('Perfil')"><i class="fa fa-user"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="modalPostagem" class="modal">
+            <div class="modal-header modal-menu">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat modal-menu-top-button">X</a>
+            </div>
+            <div class="modal-content center-align">
+                <textarea id="postagemPost" class="materialize-textarea" cols="45" rows="5" onkeyup="mostrarResultado(this.value,199,'spcontando');contarCaracteres(this.value,199,'sprestante')" placeholder="O que vcoê tem a dizer?"></textarea><br />
+                <span id="spcontando" style="font-family:Georgia;">Você ainda não digitou nada!</span><br />
+                <span id="sprestante" style="font-family:Georgia;"></span>
+                <br/>
+                <input type="button" value="Postar" onclick="enviarPostagem()" class="waves-effect waves-light btn"/>
+            </div>
+        </div>
+
+        <div id="modalComentario" class="modal">
+            <div class="navbar-fixed">
+                <nav class="nav-wrapper grey darken-4">
+                    <a href="#!" class="modal-close"><i class="fa fa-arrow-left iconArrow"></i></a>
+                    <h4 class="center-align titleApp">Comentários</h4>
+                </nav>
+            </div>
+
+            <div id="listViewPostagemCom"></div>
+            <script type="text/x-kendo-template" id="templatePostagemCom">
+                <div class="cardGray">
+                    <div class="card-content" style="padding: 0">
+                        <div class="divImgPost">
+                            #if(usuimg){#
+                                <img src="#=usuimg#" alt="imgUsuario" width="70" class="imgPost" />
+                            #} else {#
+                                <img src="img/semFoto.jpg" alt="imgUsuario" width="70"  class="imgPost" />
+                            #}#
+                        </div>
+                        <div style="overflow: hidden;font-size: 11px;margin: 10px 10px 0 0;">
+                            <span class="nomePost">${usunome}</span>
+                            <span style="float: right">#= moment(new Date(datahora)).fromNow() #</span>
+                        </div>
+                        <p class="paragrafoPost">${postagem}</p>
+                    </div>
+                </div>
+            </script>
+
+            <div id="listViewComentario"></div>
+            <script type="text/x-kendo-template" id="templateComentario">
+                <div class="cardComentario" style="margin: 0;">
+                    <div class="card-content">
+                        <div style="overflow: hidden;font-size: 11px;">
+                            <span class="title-comentario">${usunome}</span>
+                        </div>
+                        <p style="margin: 0">${comentario} - <span style="color: grey;font-size: 10px;">#= moment(datahora).startOf('day').fromNow() #</span></p>
+                    </div>
+                </div>
+            </script>
+
+            <div class="modal-footer">
+                <a class="btn-floating btn-large waves-effect waves-light teal darken-4" onclick="openModalComentarioPost()"><i class="material-icons">add</i></a>
+            </div>
+        </div>
+
+        <div id="modalComentarioPost" class="modal">
+            <div class="modal-header modal-menu">
+                <h5 class="modal-menu-top-title">Criar Comentário</h5>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat modal-menu-top-button">X</a>
+            </div>
+            <div class="modal-content center-align">
+                <p>Comentario</p>
+                <textarea id="comentarioComPost" class="materialize-textarea"></textarea>
+                <input type="button" value="Postar" onclick="enviarComentario()" class="waves-effect waves-light btn"/>
+            </div>
+        </div>
+
+        <div id="modalEvento" class="modal">
+
+            <div class="navbar-fixed">
+                <nav class="nav-wrapper grey darken-4">
+                    <a href="#!" class="modal-close"><i class="fa fa-arrow-left iconArrow"></i></a>
+                    <h4 class="center-align titleApp">Evento</h4>
+                </nav>
+            </div>
+
+            <div id="listViewEventoSingle" style="margin-bottom: 70px;"></div>
+            <script type="text/x-kendo-template" id="templateEventoSingle">
+                <div class="card" style="margin: 0; border: 0;box-shadow: none;">
+                    <div class="card-image">
+                        <img src="#=img#" />
+                    </div>
+                    <div class="card-content" style="padding: 15px;">
+                        <h5 style="text-align: center;font-weight: bolder;margin: 0;">${titulo}</h5>
+                        <h6>
+                            <b>Data</b>
+                            <p>${data}</p>
+                        </h6>
+                        <h6>
+                            <b>Hora</b>
+                            <p>${hora}</p>
+                        </h6>
+                        <h6>
+                            <b>Detalhes</b>
+                            <p style="text-align: justify;">${descricao}</p>
+                        </h6>
+                    </div>
+                </div>
+
+            </script>
+        </div>
+
+        <div id="modalNoticia" class="modal">
+            <div class="navbar-fixed">
+                <nav class="nav-wrapper grey darken-4">
+                    <a href="#!" class="modal-close"><i class="fa fa-arrow-left iconArrow"></i></a>
+                    <h4 class="center-align titleApp">Notícia</h4>
+                </nav>
+            </div>
+            <div id="listViewNoticiaSingle" style="margin-bottom: 70px;"></div>
+            <script type="text/x-kendo-template" id="templateNoticiaSingle">
+                <div class="card" style="margin: 0; border: 0;box-shadow: none;">
+                    <div class="card-image">
+                        <img src="#=img#" />
+                    </div>
+                    <div class="card-content" style="padding: 0 10px;">
+                        <div style="overflow: hidden;font-size: 11px;margin: 5px 0;">
+                            <span style="float: left;">${autor}</span>
+                            <span style="float: right;">#= moment(datah).fromNow() #</span>
+                        </div>
+                        <h5 class="card-title activator grey-text text-darken-4" style="font-size: 16px;font-style: normal;font-weight: bold;padding: 0;margin: 0;line-height: 22px;text-align: justify">${titulo}</h5>
+                        <div style="margin-top: 6px;text-align: justify">#= texto #</div>
+                    </div>
+                </div>
+
+            </script>
+        </div>
+
+        <div id="modalBlog" class="modal">
+            <div class="navbar-fixed">
+                <nav class="nav-wrapper grey darken-4">
+                    <a href="#!" class="modal-close"><i class="fa fa-arrow-left iconArrow"></i></a>
+                    <h4 class="center-align titleApp">Blog</h4>
+                </nav>
+            </div>
+            <div id="listViewBlogSingle" style="margin-bottom: 70px;"></div>
+            <script type="text/x-kendo-template" id="templateBlogSingle">
+                <div class="card" style="margin: 0; border: 0;box-shadow: none;">
+                    <div class="card-image">
+                        <img src="#=img#" />
+                    </div>
+                    <div class="card-content" style="padding: 0 10px;">
+                        <div style="overflow: hidden;font-size: 11px;margin: 5px 0;">
+                            <span style="float: left;">${autor}</span>
+                            <span style="float: right;">#= moment(datah).fromNow() #</span>
+                        </div>
+                        <h5 class="card-title activator grey-text text-darken-4" style="text-align: justify;font-size: 16px;font-style: normal;font-weight: bold;padding: 0;margin: 0;line-height: 22px;">${titulo}</h5>
+                        <div style="margin-top: 6px;text-align: justify;">#= texto #</div>
+                    </div>
+                </div>
+
+            </script>
+        </div>
+
+        <div id="loading">
+            <img src="img/load.gif" />
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/moment.js"></script>
+        <script type="text/javascript" src="js/master.js"></script>
+
+        <script type="text/javascript" src="js/home/motoclube.js"></script>
+        <script type="text/javascript" src="js/home/novidades.js"></script>
+        <script type="text/javascript" src="js/home/social.js"></script>
+        <script type="text/javascript" src="js/home/eventos.js"></script>
+        <script type="text/javascript" src="js/home/perfil.js"></script>
+        <script type="text/javascript" src="js/home/social-comentario.js"></script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+
+    </body>
+
+</html>

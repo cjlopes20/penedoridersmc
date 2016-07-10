@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Penedo Riders</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="../../../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+
+    <body>
+
+        <div class="navbar-fixed">
+            <nav class="nav-wrapper grey darken-4">
+                <h4 class="center-align titleApp">Social</h4>
+                <i class="fa fa-bars icon-menu" onclick="openModalMenu()"></i>
+            </nav>
+        </div>
+
+        <div class="row">
+
+            <div class="col s12">
+                <div id="listViewPostagem" style="margin-bottom: 35px;"></div>
+                <script type="text/x-kendo-template" id="templatePostagem">
+                    <div class="card cardNoticias">
+                        <div class="card-content" style="padding: 0 15px">
+                            <div style="overflow: hidden;font-size: 11px;margin: 5px 0">
+                                <span style="float: left">${usunome}</span>
+                                <span style="float: right">#= moment(datahora).fromNow() #</span>
+                            </div>
+                            <p>${postagem}</p>
+                            <i class="fa mdi-action-face-unlock"></i>
+                        </div>
+                    </div>
+
+                </script>
+                <div class="fixed-action-btn" style="bottom: 64px; right: 5px;">
+                    <a class="btn-floating btn-large waves-effect waves-light teal darken-4" onclick="openModalPost()"><i class="material-icons">add</i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-fixed footer">
+            <nav class="nav-wrapper grey darken-4">
+                <ul class="center row">
+                    <li class="itemMenuBottom"><a href="../motoclube/motoclube.html"><i class="fa fa-motorcycle"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../novidades/novidades.html"><i class="fa fa-newspaper-o"></i></a></li>
+                    <li class="itemMenuBottom item-select"><a href="social.html"><i class="fa fa-users"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../eventos/eventos.html"><i class="fa fa-calendar"></i></a></li>
+                    <li class="itemMenuBottom"><a href="../fotos/fotos.html"><i class="fa fa-photo"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="modalMenu" class="modal bottom-sheet">
+            <div class="modal-header modal-menu">
+                <h5 class="modal-menu-top-title">Configurações</h5>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat modal-menu-top-button">X</a>
+            </div>
+            <div class="modal-content">
+                <p>Meu Perfil</p>
+                <p>Sobre</p>
+                <p onclick="menuSair()">Sair</p>
+            </div>
+        </div>
+
+        <div id="modalPostagem" class="modal">
+            <div class="modal-header modal-menu">
+                <h5 class="modal-menu-top-title">Criar Post</h5>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat modal-menu-top-button">X</a>
+            </div>
+            <div class="modal-content center-align">
+                <p>Postagem</p>
+                <textarea id="comentarioPost" class="materialize-textarea" cols="45" rows="5" onkeyup="mostrarResultado(this.value,199,'spcontando');contarCaracteres(this.value,199,'sprestante')"></textarea><br />
+                <span id="spcontando" style="font-family:Georgia;">Você ainda não digitou nada!</span><br />
+                <span id="sprestante" style="font-family:Georgia;"></span>
+                <br/>
+                <input type="button" value="Postar" onclick="enviarPostagem()" class="waves-effect waves-light btn"/>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+        <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+        <script type="text/javascript" src="../../../js/moment.js"></script>
+
+        <script type="text/javascript" src="../../../js/master.js"></script>
+        <script type="text/javascript" src="social.js"></script>
+        <script type="text/javascript" src="../../../cordova.js"></script>
+
+    </body>
+
+</html>
